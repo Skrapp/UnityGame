@@ -7,6 +7,8 @@ var y;
 var x;
 var facingRight = true;
 var facingLeft = false;
+var cat_actions: cat_actions;  
+
 
 function Start () {
 
@@ -33,7 +35,7 @@ function Update () {
         y = GetComponent.<Rigidbody2D>().velocity.y;
         GetComponent.<Rigidbody2D>().velocity = new Vector2 (speed, y);
 
-        if (facingLeft) {
+        if (!facingRight) {
             Flip();
         }        
     }
@@ -42,6 +44,11 @@ function Update () {
 function OnCollisionStay2D (coll : Collision2D) {
     if (coll.gameObject.CompareTag("Ground")) {
         numJumps = 0;
+    }
+
+    if (coll.gameObject.CompareTag("Enemy")) {
+        Debug.Log ("hej");
+        cat_actions.Death();
     }
 }
 
@@ -61,5 +68,5 @@ function Flip () {
     rigidbody.transform.localScale = flipScale;
 
     facingRight =!facingRight;
-    facingLeft = !facingLeft;
+    //facingLeft = !facingLeft;
 }
