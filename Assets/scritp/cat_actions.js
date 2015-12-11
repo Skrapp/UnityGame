@@ -7,9 +7,6 @@ function Start () {
 }
 
 function Update () {
-    var rigidbody : Rigidbody2D;
-
-    rigidbody = GetComponent.<Rigidbody2D>();
     if (transform.position.y < drop){
         Death();
     }
