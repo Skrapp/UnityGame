@@ -7,16 +7,22 @@ function Start () {
 }
 
 function Update () {
-    y = GetComponent.<Rigidbody2D>().velocity.y;
+   /* y = GetComponent.<Rigidbody2D>().velocity.y;
     GetComponent.<Rigidbody2D>().velocity = new Vector2 (speed, y);
 
     if (transform.position.x < GameObject.Find("Left").transform.position.x){
-        Debug.Log ("tja");
+        //Debug.Log ("tja");
         Flip();
     }
     if (transform.position.x > GameObject.Find("Right").transform.position.x ){
-        Debug.Log ("tja1");
+        //Debug.Log ("tja1");
         Flip();
+    }*/
+}
+
+function OnCollisionStay2D (coll : Collision2D) {
+    if (coll.gameObject.CompareTag("EnemyDie")) {
+        Debug.Log ("die potato");
     }
 }
 

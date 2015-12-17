@@ -5,10 +5,12 @@ var numJumps = 0;
 var maxJumps = 1;
 var y; 
 var x;
+var forceX= 1;
 var facingRight = true;
 var facingLeft = false;
 var cat_actions: cat_actions;  
-
+var thrust = 5000;
+var inputY : float;
 
 function Start () {
 
@@ -39,17 +41,25 @@ function Update () {
             Flip();
         }        
     }
+    /*var inputY = Input.GetAxis("Horizontal") * thrust * Time.deltaTime;
+    GetComponent.<Rigidbody2D>().AddForce(Vector2.up * 1000);
+ Debug.Log (inputY);*/
 }
 
 function OnCollisionStay2D (coll : Collision2D) {
     if (coll.gameObject.CompareTag("Ground")) {
         numJumps = 0;
     }
-
+   
     if (coll.gameObject.CompareTag("Enemy")) {
-        Debug.Log ("hej");
+       /* inputY = Input.GetAxis("Horizontal") * thrust * Time.deltaTime;
+        Debug.Log (inputY);
+        GetComponent.<Rigidbody2D>().AddForce(Vector2.right * (-inputY) * thrust);
+        yield WaitForSeconds (10);*/
         cat_actions.Death();
     }
+
+
 }
 
 function CanJump () {
