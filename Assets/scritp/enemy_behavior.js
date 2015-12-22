@@ -11,18 +11,10 @@ function Start () {
 function Update () {
 }
 
-function OnCollisionStay2D (coll : Collision2D) {
+function OnTriggerEnter2D (coll : Collider2D) {
     if (coll.gameObject.CompareTag("EnemyDie")) {
-        Debug.Log ("die potato");
+        Destroy(transform.root.gameObject);
     }
-    /*if (coll.gameObject.CompareTag("Player")) {
-        if (facingRight){
-        bounceX *= -1;
-        }
-        else {
-
-        }
-    }*/
 }
 
 /*function Flip () {

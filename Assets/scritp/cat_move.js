@@ -57,11 +57,14 @@ function OnCollisionStay2D (coll : Collision2D) {
         GetComponent.<Rigidbody2D>().velocity.y = 30f;
         GetComponent.<Rigidbody2D>().velocity.x = enemyScript.bounceX;
         attacked = true;
-        yield WaitForSeconds (1);
+        yield WaitForSeconds (0.7);
         attacked = false;
        // cat_actions.Death();
     }
 
+    if (coll.gameObject.CompareTag("EnemyHead")) {
+        
+    }
 
 }
 
