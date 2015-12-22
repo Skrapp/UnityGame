@@ -53,13 +53,15 @@ function OnCollisionStay2D (coll : Collision2D) {
     }
    
     if (coll.gameObject.CompareTag("Enemy")) {
+        attacked = true;
+        //lose health
+        cat_actions.healthLoss = 10; // should be a variable on the thing you hit
+        cat_actions.LoseHealth();
 
         GetComponent.<Rigidbody2D>().velocity.y = 30f;
         GetComponent.<Rigidbody2D>().velocity.x = enemyScript.bounceX;
-        attacked = true;
         yield WaitForSeconds (0.7);
         attacked = false;
-       // cat_actions.Death();
     }
 
     if (coll.gameObject.CompareTag("EnemyHead")) {

@@ -3,6 +3,8 @@ var drop = -60;
 var AttackArea : GameObject;
 private var isRestarted = false;
 var clone;
+var healthLoss = 0;
+var health = 100;
 
 function Start () {
 
@@ -20,6 +22,11 @@ function Update () {
         clone = Instantiate(AttackArea, new Vector2 (x, y),  Quaternion.identity);
         Destroy (clone, 1);
     }
+}
+
+function LoseHealth (){
+    health -= healthLoss;
+    Debug.Log (health);
 }
 
 function Death () {
