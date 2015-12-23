@@ -5,6 +5,8 @@ private var isRestarted = false;
 var clone;
 var healthLoss = 0;
 var health = 100;
+var y = 1;
+var x = 2.78;
 
 function Start () {
 
@@ -17,10 +19,11 @@ function Update () {
 
     if (Input.GetKeyDown(KeyCode.Q)){
         //var clone : ;
-        var x = transform.position.x +  2.79;
-        var y = transform.position.y;
+        var x = transform.position.x + x;
+        var y = transform.position.y + y;
         clone = Instantiate(AttackArea, new Vector2 (x, y),  Quaternion.identity);
-        Destroy (clone, 1);
+        //var lenght = GameObject.Find("AttackArea").GetComponent.<Animation>().clip.length("attack");
+        Destroy (clone, 0.30 /*GameObject.Find("AttackArea").GetComponent.<AnimationClip>().length("attack")*/);
     }
 }
 
